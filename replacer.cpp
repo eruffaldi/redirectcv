@@ -2,12 +2,12 @@
 #include <dlfcn.h>
 
 // TODO use some C++11 metaprogramming and extract it from the real imshow
-using FX = void(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, cv::_InputArray const&);
+using FX = void(std::string const&, cv::_InputArray const&);
 FX* realimshow;
 
 namespace cv
 {
-	void imshow(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const& name, cv::_InputArray const& p)
+	void imshow(std::string const& name, cv::_InputArray const& p)
 	{
 		std::cout << "imshow " << name << std::endl;
 		if(name[0] == '!')
